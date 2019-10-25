@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Set;
 
 @Setter
@@ -32,13 +33,13 @@ public class Destination {
     private LocalDate departureDate;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "destination")
-    private Set<Sight> sights;
+    private Set<Sight> sights = new HashSet<>();
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "destination")
-    private Set<Accommodation> accommodations;
+    private Set<Accommodation> accommodations = new HashSet<>();
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "destination")
-    private Set<Meal> meals;
+    private Set<Meal> meals = new HashSet<>();
 
     @OneToOne
     private Travel travel;
