@@ -1,11 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" >
     <title>Trip Planner</title>
 </head>
 <body>
     <h1>Trip Planner</h1>
+<ul th:each="trip : ${trips}">
+    <h3 th:text="${trip.name}">India</h3>
+
+    <li th:each="destination : ${trip.destinations}">
+       <span th:text="${destination.city}">Destination name</span>
+       <ul>
+           <li>Meals:</li>
+           <ul>
+               <li th:each="meal : ${destination.meals}">
+                   <span th:text="${meal.name}">Meal name</span>
+               </li>
+           </ul>
+           <li>Accommodation:</li>
+           <ul>
+               <li th:each="accommodation : ${destination.accommodations}">
+                   <span th:text="${accommodation.name}">Hotel name</span>
+               </li>
+           </ul>
+       </ul>
+
+   </li>
+</ul>
 </body>
 </html>
 
