@@ -1,4 +1,7 @@
 package com.julienvanhaeren.travelplanner.model;
 
-public class Sight {
+import java.time.LocalDate;
+
+public class Sight extends BaseActivity {
+    private LocalDate date;
 }

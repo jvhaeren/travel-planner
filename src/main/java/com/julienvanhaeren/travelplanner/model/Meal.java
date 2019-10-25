@@ -1,4 +1,7 @@
 package com.julienvanhaeren.travelplanner.model;
 
-public class Meal {
+import java.time.LocalDate;
+
+public class Meal extends BaseActivity  {
+    private LocalDate date;
 }

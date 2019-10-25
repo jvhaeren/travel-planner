@@ -1,4 +1,8 @@
 package com.julienvanhaeren.travelplanner.model;
 
-public class Accommodation {
+import java.time.LocalDate;
+
+public class Accommodation extends BaseActivity  {
+    private LocalDate arrivalDate;
+    private LocalDate departureDate;
 }
