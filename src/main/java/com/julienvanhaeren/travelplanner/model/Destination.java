@@ -15,6 +15,10 @@ import java.util.Set;
 @Table(name = "destinations")
 public class Destination {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @Column(name = "city")
     private String city;
 

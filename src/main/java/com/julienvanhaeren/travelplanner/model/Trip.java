@@ -15,9 +15,13 @@ import java.util.Set;
 @Table(name = "trips")
 public class Trip {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @Column(name = "name")
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "Trip")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "trip")
     private Set<Destination> destinations = new HashSet<>();
 }

@@ -2,10 +2,7 @@ package com.julienvanhaeren.travelplanner.model;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Setter
@@ -16,6 +13,10 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "travels")
 public class Travel {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name = "travel_type")
     private String travelType;

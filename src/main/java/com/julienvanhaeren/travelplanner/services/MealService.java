@@ -2,10 +2,13 @@ package com.julienvanhaeren.travelplanner.services;
 
 import com.julienvanhaeren.travelplanner.model.Meal;
 import com.julienvanhaeren.travelplanner.repositories.MealRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
 
+
+@Service
 public class MealService implements CrudService<Meal, Long>{
 
     private final MealRepository mealRepository;

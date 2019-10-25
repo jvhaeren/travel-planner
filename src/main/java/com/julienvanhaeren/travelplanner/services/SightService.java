@@ -2,10 +2,13 @@ package com.julienvanhaeren.travelplanner.services;
 
 import com.julienvanhaeren.travelplanner.model.Sight;
 import com.julienvanhaeren.travelplanner.repositories.SightRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
 
+
+@Service
 public class SightService implements CrudService<Sight, Long> {
 
     private final SightRepository sightRepository;

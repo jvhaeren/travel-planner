@@ -2,10 +2,12 @@ package com.julienvanhaeren.travelplanner.services;
 
 import com.julienvanhaeren.travelplanner.model.Destination;
 import com.julienvanhaeren.travelplanner.repositories.DestinationRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Service
 public class DestinationService implements CrudService<Destination, Long> {
 
     private final DestinationRepository destinationRepository;
