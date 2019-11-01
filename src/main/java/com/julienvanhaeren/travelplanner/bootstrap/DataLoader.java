@@ -72,10 +72,9 @@ public class DataLoader implements CommandLineRunner {
 
         Travel travel1 = new Travel();
         travel1.setTravelType("Train");
-        travel1.setDepartureDestination(jaipur);
-        travel1.setArrivalDestination(udaipur);
         travel1.setTrip(trip1);
-
+        udaipur.setDepartureTravel(travel1);
+        jaipur.setArrivalTravel(travel1);
         trip1.getTravels().add(travel1);
 
 

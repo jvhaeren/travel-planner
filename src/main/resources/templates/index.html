@@ -20,12 +20,19 @@
                     </h1>
                 </div>
                 <div class="panel-body">
-                    <div th:each="travel:${trip.travels}" class="panel">
+                    <div th:each="destination:${trip.destinations}" class="panel">
                         <div class="panel-heading">
-                            <h3 th:text="${travel.departureDestination.city}"></h3>
-                            <h3 th:text="${travel.travelType}">Travel Type</h3>
-                            <h3 th:text="${travel.arrivalDestination.city}"></h3>
+                            <h3 th:text="${destination.city}"></h3>
+                            <h3 th:text="${destination.departureTravel}"></h3>
                         </div>
+                        <div class="panel-body">
+                            <h4>Meals</h4>
+                            <li th:each="meal:${destination.meals}" th:text="${meal.name}"></li>
+                            <hr />
+                            <h4>Accommodation</h4>
+                            <li th:each="accommodation:${destination.accommodations}" th:text="${accommodation.name}"></li>
+                        </div>
+
                     </div>
                 </div>
             </div>

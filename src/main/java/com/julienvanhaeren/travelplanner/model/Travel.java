@@ -27,11 +27,11 @@ public class Travel {
     @Column(name = "arrival_time")
     private LocalDateTime arrivalTime;
 
-    @OneToOne
-    private Destination departureDestination;
-
-    @OneToOne
-    private Destination arrivalDestination;
+//    @OneToOne
+//    private Destination departureDestination;
+//
+//    @OneToOne
+//    private Destination arrivalDestination;
 
     @ManyToOne
     @JoinColumn(name = "trip_id")
