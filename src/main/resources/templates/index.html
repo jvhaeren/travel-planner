@@ -1,33 +1,39 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" >
+    <meta charset="UTF-8">
     <title>Trip Planner</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <h1>Trip Planner</h1>
-<ul th:each="trip : ${trips}">
-    <h3 th:text="${trip.name}">India</h3>
 
-    <li th:each="destination : ${trip.destinations}">
-       <span th:text="${destination.city}">Destination name</span>
-       <ul>
-           <li>Meals:</li>
-           <ul>
-               <li th:each="meal : ${destination.meals}">
-                   <span th:text="${meal.name}">Meal name</span>
-               </li>
-           </ul>
-           <li>Accommodation:</li>
-           <ul>
-               <li th:each="accommodation : ${destination.accommodations}">
-                   <span th:text="${accommodation.name}">Hotel name</span>
-               </li>
-           </ul>
-       </ul>
 
-   </li>
-</ul>
+<div class="container-fluid" style="margin-top: 20px">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div th:each="trip:${trips}" class="panel panel-primary">
+                <div class="panel-heading">
+                    <h1 th:text="${trip.name}" class="panel-title">
+                        Title
+                    </h1>
+                </div>
+                <div class="panel-body">
+                    <div th:each="travel:${trip.travels}" class="panel">
+                        <div class="panel-heading">
+                            <h3 th:text="${travel.departureDestination.city}"></h3>
+                            <h3 th:text="${travel.travelType}">Travel Type</h3>
+                            <h3 th:text="${travel.arrivalDestination.city}"></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 </body>
 </html>
 

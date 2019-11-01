@@ -1,10 +1,8 @@
 package com.julienvanhaeren.travelplanner.bootstrap;
 
-import com.julienvanhaeren.travelplanner.model.Accommodation;
-import com.julienvanhaeren.travelplanner.model.Destination;
-import com.julienvanhaeren.travelplanner.model.Meal;
-import com.julienvanhaeren.travelplanner.model.Trip;
-import com.julienvanhaeren.travelplanner.services.*;
+import com.julienvanhaeren.travelplanner.model.*;
+import com.julienvanhaeren.travelplanner.services.TravelService;
+import com.julienvanhaeren.travelplanner.services.TripService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -12,21 +10,13 @@ import org.springframework.stereotype.Component;
 public class DataLoader implements CommandLineRunner {
 
     private final TripService tripService;
-    private final DestinationService destinationService;
     private final TravelService travelService;
-    private final AccommodationService accommodationService;
-    private final MealService mealService;
-    private final SightService sightService;
 
-    public DataLoader(TripService tripService, DestinationService destinationService, TravelService travelService,
-                      AccommodationService accommodationService, MealService mealService, SightService sightService) {
+    public DataLoader(TripService tripService, TravelService travelService) {
         this.tripService = tripService;
-        this.destinationService = destinationService;
         this.travelService = travelService;
-        this.accommodationService = accommodationService;
-        this.mealService = mealService;
-        this.sightService = sightService;
     }
+
 
     @Override
     public void run(String... args) throws Exception {
@@ -80,12 +70,21 @@ public class DataLoader implements CommandLineRunner {
         meal23.setName("diner udaipur");
         meal23.setDestination(udaipur);
 
+        Travel travel1 = new Travel();
+        travel1.setTravelType("Train");
+        travel1.setDepartureDestination(jaipur);
+        travel1.setArrivalDestination(udaipur);
+        travel1.setTrip(trip1);
+
+        trip1.getTravels().add(travel1);
+
 
         jaipur.getMeals().add(meal11);
         jaipur.getMeals().add(meal12);
         jaipur.getMeals().add(meal13);
         jaipur.getAccommodations().add(hotel1);
         trip1.getDestinations().add(jaipur);
+
 
         udaipur.getMeals().add(meal21);
         udaipur.getMeals().add(meal22);
@@ -94,6 +93,8 @@ public class DataLoader implements CommandLineRunner {
         trip1.getDestinations().add(udaipur);
 
         tripService.save(trip1);
+
+
 
     }
 

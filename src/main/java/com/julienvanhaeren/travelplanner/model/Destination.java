@@ -41,8 +41,11 @@ public class Destination {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "destination")
     private Set<Meal> meals = new HashSet<>();
 
-    @OneToOne
-    private Travel travel;
+//    @OneToOne
+//    private Travel arrivalTravel;
+//
+//    @OneToOne
+//    private Travel departureTravel;
 
     @ManyToOne
     @JoinColumn(name = "trip_id")

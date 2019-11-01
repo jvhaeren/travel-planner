@@ -21,12 +21,6 @@ public class Travel {
     @Column(name = "travel_type")
     private String travelType;
 
-    @Column(name = "departure_destination")
-    private String departureDestination;
-
-    @Column(name = "arrival_destination")
-    private String arrivalDestination;
-
     @Column(name = "departure_time")
     private LocalDateTime departureTime;
 
@@ -34,5 +28,14 @@ public class Travel {
     private LocalDateTime arrivalTime;
 
     @OneToOne
-    private Destination destination;
+    private Destination departureDestination;
+
+    @OneToOne
+    private Destination arrivalDestination;
+
+    @ManyToOne
+    @JoinColumn(name = "trip_id")
+    private Trip trip;
+
+
 }

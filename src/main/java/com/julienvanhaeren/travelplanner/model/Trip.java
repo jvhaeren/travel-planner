@@ -24,4 +24,7 @@ public class Trip {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "trip")
     private Set<Destination> destinations = new HashSet<>();
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "trip")
+    private Set<Travel> travels = new HashSet<>();
 }
